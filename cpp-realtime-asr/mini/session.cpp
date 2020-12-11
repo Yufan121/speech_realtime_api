@@ -43,7 +43,7 @@ Session::Session(net::io_context &ioc, std::istream &stream, ssl::context &ctx)
 Session::Session(net::io_context &ioc, std::istream &stream)
         : resolver_{net::make_strand(ioc)}, stream_{stream},
           read_buffer_{new char[5120]},
-          ws_{net::make_strand(ioc)} {
+          ws_{const net::make_strand(ioc)} {
 
 }
 
